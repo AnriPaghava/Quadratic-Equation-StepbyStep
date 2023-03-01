@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>კვადრატული განტოლების გამომთვლელი</title>
+</head>
+<body>
+  <button id="refresh" onclick="location.reload()" onmouseover="changeContent1()" onmouseout="changeContent2()" on>&#8635</button>
+  
+  <div class="head-container">
+    <h1>კვადრატული განტოლების გამომთვლელი</h1>
+    <h2>ზოგადი ტიპი - (ax<sup>2</sup>+bx+c)</h2>
+  </div>
+  <div id="big-container">
+    <div id="eqnOutput"><span id="eqnOutputA-container"><span id="eqnOutputA"></span>x<sup>2</sup></span><span id="eqnOutputB-container"><span id="eqnOutputB"></span>x</span><span id="eqnOutputC-container"><span id="eqnOutputC"></span></span></div>
+  <div class="container">
+    <div class="input-container">
+      <input type="number" name="a-value" id="input1" oninput="preSolveEqnA()" class="a-val" placeholder="a" autofocus>
+      <span id="x-coefficient">x<sup>2</sup>+</span>
+      <span id="checkLimitTooltipA"></span>
+    </div>
+    <div class="input-container">
+      <input type="number" name="b-value" id="input2" oninput="preSolveEqnB()" class="b-val" placeholder="b">
+      <span id="x-coefficient">x+</span>
+      <span id="checkLimitTooltipB"></span>
+    </div>
+    <div class="input-container">
+      <input type="number" name="c-value" id="input3" oninput="preSolveEqnC()" class="c-val" placeholder="c">
+      <span id="checkLimitTooltipC"></span>
+    </div>
+    <br>
+    <button id="button" type="submit" onclick="solveEqn(); initSteps()">ამოხსნა</button>
+    <div id="answer"></div>
+  </div>
+  </div>
+
+  <button id="steps" onclick="showSteps()" onmouseover="hovering()">იხილეთ ამოხსნა ნაბიჯ-ნაბიჯ</button>
+  <div id="table-container" onmouseover="showTT()" onmouseout="hideTT()">
+    <table class="solvingSteps" id="solvingSteps">
+      <tr>
+        <td class="stephd">ნაბიჯი 1: </td>
+        <td colspan="1"><span id="x">x =</span></td>
+        <td colspan="3">
+          <div id="steppers1">
+            <div class="steps" id="ნაბიჯი1">
+              -b&#177&#8730b<sup>2</sup>-4ac
+              <hr>
+              2a
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="stephd">ნაბიჯი 2: </td><td colspan="4"><div class="steps" id="ნაბიჯი2"><span id="fV-Container"><span id="firstVal"></span>x<sup>2</sup></span><span id="sV-container"><span id="secondVal"></span>x</span><span id="tV-container"><span id="thirdVal"></span></span></div></td>
+      </tr>
+      <tr>
+        <td class="stephd">ნაბიჯი 3: </td><td colspan="4"><div class="steps" id="ნაბიჯი3"></div></td>
+      </tr>
+      <tr>
+        <td class="stephd">ნაბიჯი 4: </td><td colspan="1"><span id="x">x =</span></td><td colspan="3"><div id="steppers4"><div class="steps" id="ნაბიჯი4"></div></div></td>
+      </tr>
+      <tr>
+        <td class="stephd">ნაბიჯი 5: </td><td colspan="1"><span id="x">x =</span></td><td colspan="3"><div id="steppers5"><div class="steps" id="ნაბიჯი5"></div></div></td>
+      </tr>
+      <tr>
+        <td class="stephd">ნაბიჯი 6: </td><td colspan="1"><span id="x">x =</span></td><td colspan="3"><div id="steppers6"><div class="steps" id="ნაბიჯი6"></div></div></td>
+      </tr>
+      <tr>
+        <td class="stephd">ნაბიჯი 7: </td><td colspan="1"><span id="x">x =</span></td><td colspan="3"><div id="steppers7"><div class="steps" id="ნაბიჯი7"></div></div></td>
+      </tr>
+      <tr>
+        <td class="stephd">ნაბიჯი 8: </td>
+        <td colspan="1"><span id="x">x =</span></td>
+        <td colspan="1"><div id="steppers8a"><div class="steps" id="ნაბიჯი8a"></div></div></td>
+        <td colspan="1"><span></span>ან</td>
+        <td colspan="1"><div id="steppers8b"><div class="steps" id="ნაბიჯი8b"></div></div></td>
+      </tr>
+      <tr>
+        <td class="stephd">ნაბიჯი 9: </td>
+        <td colspan="1"><span id="x">x =</span></td>
+        <td colspan="1"><div id="steppers9a"><div class="steps" id="ნაბიჯი9a"></div></div></td>
+        <td colspan="1"><span></span>ან</td>
+        <td colspan="1"><div id="steppers9b"><div class="steps" id="ნაბიჯი9b"></div></div></td>
+      </tr>
+      <tr id="step10bb">
+        <td class="stephd">ნაბიჯი 10: </td>
+        <td colspan="1"><span id="x">x =</span></td>
+        <td colspan="1"><div class="steps" id="ნაბიჯი10a"></div></td>
+        <td colspan="1"><span></span>ან</td>
+        <td colspan="1"><div class="steps" id="ნაბიჯი10b"></div></td>
+      </tr>
+    </table>
+  </div>
+  <script src="js/qes.js"></script>
+  <script src="js/qesB.js"></script>
+  <script src="js/qesC.js"></script>
+</body>
+</html>
